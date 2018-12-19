@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+</head>
+<body style="height:100%;margin:0">
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:1000%;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '流行x古风歌词韵脚分布'
+            },
+            tooltip: {
+                trigger:'axis',
+                axisPointer:{
+                    type:'shadow'
+                }
+            },
+            legend: {
+                data:['流行','古风']
+            },
+            grid:{
+                left:'3%',
+                right:'4%',
+                bottom:'3%',
+                containLabel:true
+            },
+            xAxis: [
+                {
+                    type : 'value',
+                    axisTick:{show:false}
+                }
+            ],
+            yAxis: [
+                {
+                    type : 'category',
+                    axisTick : {show: false},
+                    data : ['v','un','in', 'ie', 'iu', 'eng','ui','ing','ei','ai','e','ong','o','en','ao','ou','u','i','a','ang','an']
+                }
+            ],
+            series: [
+                {
+                    name: '流行',
+                    type: 'bar',
+                    stack:'总量',
+                    label:{
+                        normal:{
+                            show:false
+                        }
+                    },
+                    itemStyle:{
+                        color:'#70a19f'
+                    },
+                    data: [0,-7,-54,-41,-25,-34,-126,-169,-144,-615,-614,-254,-457,-190,-375,-530,-283,-1544,-339,-770,-1078]
+                },
+                {
+                    name:'古风',
+                    type:'bar',
+                    stack:'总量',
+                    label:{
+                        normal:{
+                            show:true,
+                            position:'right'
+                        }
+                    },
+                    itemStyle:{
+                        color:'#b05b5c'
+                    },
+                    data:[1,17,23,87,115,119,127,130,144,151,212,267,338,342,358,359,493,685,912,1814,2005]
+                },
+            ]
+        };
+
+        
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
