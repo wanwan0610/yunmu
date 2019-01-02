@@ -8,7 +8,7 @@
 </head>
 <body style="height:100%;margin:0">
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main" style="height:1000%;"></div>
+    <div id="main" style="height:500%;"></div>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
@@ -76,6 +76,8 @@
                     itemStyle:{
                         color:'#b05b5c'
                     },
+                    barWidth:15,
+                    barCategoryGap:'20%',
                     data:[1,17,23,87,115,119,127,130,144,151,212,267,338,342,358,359,493,685,912,1814,2005]
                 },
             ]
